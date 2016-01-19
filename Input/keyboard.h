@@ -1,6 +1,10 @@
 #ifndef KEYBOARD_H_
 #define KEYBOARD_H_
 
+#include <map>
+#include <SDL2/SDL.h>
+#include "../easylogging++.h"
+
 class Keyboard {
 	private:
 
@@ -8,7 +12,7 @@ class Keyboard {
 		std::map<uint, bool> prevKeyboardState;
 		std::map<uint, bool> keyboardState;
 
-		doEvent(SDL_EVENT& e);
+		void doEvent(SDL_Event& e);
 
 		Keyboard();
 		~Keyboard();

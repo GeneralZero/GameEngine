@@ -3,6 +3,8 @@
 
 #include <SDL2/SDL.h>
 #include <string>
+#include <GL/glew.h>
+#include "../easylogging++.h"
 
 class Display
 {
@@ -11,6 +13,7 @@ public:
 	virtual ~Display();
 
 	void update();
+	void doEvent(SDL_Event& e);
 	bool isClosed();
 	void Clear(float a, float b, float c, float d);
 	void Clear();

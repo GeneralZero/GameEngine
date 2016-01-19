@@ -1,10 +1,7 @@
 #include "display.h"
 #include <iostream>
-#include <GL/glew.h>
 
 Display::Display(int width, int height, const std::string& title){
-	//std::cout << "Constructor" << std::endl;
-
 	//Init SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -25,7 +22,7 @@ Display::Display(int width, int height, const std::string& title){
 	GLenum status = glewInit();
 
 	if(status != GLEW_OK){
-		std::cerr << "Glew failed to initalize!\n" ;
+		LOG(ERROR) << "Glew failed to initalize!\n" ;
 	}
 
 	is_closed = false;

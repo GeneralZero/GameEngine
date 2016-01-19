@@ -1,3 +1,4 @@
+#include "keyboard.h"
 #include <GL/glut.h>
 
 
@@ -9,14 +10,14 @@ Keyboard::~Keyboard(){
 
 }
 
-uint Keyboard::doEvents(SDL_Event e){
+void Keyboard::doEvent(SDL_Event& e){
 
 	//Update Keys
 	if (e.type == SDL_KEYDOWN){
-		keyboardState[event.key.keysym.sym] = true;
+		keyboardState[e.key.keysym.sym] = true;
 	}
 	else if(e.type == SDL_KEYUP){
-		keyboardState[event.key.keysym.sym] = false;
+		keyboardState[e.key.keysym.sym] = false;
 	}
 
 	//Deal with New and Held Keys
@@ -32,17 +33,17 @@ uint Keyboard::doEvents(SDL_Event e){
 		}
 	}
 
-	for(std::map<uint, bool>::iterator iterator = prevkeyboardState.begin(); iterator != prevkeyboardState.end(); iterator++) {
+	for(std::map<uint, bool>::iterator iterator = prevKeyboardState.begin(); iterator != prevKeyboardState.end(); iterator++) {
 		
 		//Deal with Releaced Keys
-		if(KeyboardState[iterator->first] == false){
+		if(keyboardState[iterator->first] == false){
 
 		}
 	}
 
 	//reset Keyboard state
-	prevkeyboardState.clear();
-	prevkeyboardState = keyboardState;
+	prevKeyboardState.clear();
+	prevKeyboardState = keyboardState;
 	keyboardState.clear();
 
 }

@@ -1,9 +1,9 @@
 EXECUTABLE = main
-CPPFLAGS = -ggdb3 -Wall -L/usr/X11R6/lib
+CPPFLAGS = -ggdb3 -Wall -L/usr/X11R6/lib -std=c++11
 LIBS = -lpthread -lGL -lGLEW -lSDL2 -lGLU -lm -lstdc++
 #################################################
 CC = g++
-SRCS := $(wildcard ./Camera/*.cpp) $(wildcard ./Shaders/*.cpp) $(wildcard ./Textures/*.cpp) $(wildcard *.cpp)
+SRCS := $(wildcard ./Camera/*.cpp) $(wildcard ./Input/*.cpp) $(wildcard ./Body/Shaders/*.cpp) $(wildcard ./Body/*.cpp) $(wildcard ./Body/Textures/*.cpp) $(wildcard *.cpp)
 OBJS := $(patsubst %.cpp,%.o,$(SRCS))
 DEPS := $(patsubst %.cpp,%.d,$(SRCS))
 #################################################
