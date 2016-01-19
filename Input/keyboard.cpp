@@ -11,39 +11,28 @@ Keyboard::~Keyboard(){
 }
 
 void Keyboard::doEvent(SDL_Event& e){
-
 	//Update Keys
 	if (e.type == SDL_KEYDOWN){
 		keyboardState[e.key.keysym.sym] = true;
-	}
-	else if(e.type == SDL_KEYUP){
-		keyboardState[e.key.keysym.sym] = false;
-	}
 
-	//Deal with New and Held Keys
-	for(std::map<uint, bool>::iterator iterator = keyboardState.begin(); iterator != keyboardState.end(); iterator++) {
-		
 		//Newly Pressed Keys
-		if( prevKeyboardState[iterator->first] == false){
+		if( prevKeyboardState.find(e.key.keysym.sym) == prevKeyboardState.end()){
+			LOG(INFO) << "Newly Pressed: " << e.key.keysym.sym;
 
+			prevKeyboardState.insert(std::pair<uint,bool>(e.key.keysym.sym, true));
 		}
 		//Held Keys
 		else{
 
 		}
+
+		//reset Keyboard state
 	}
+	else if(e.type == SDL_KEYUP){
+		LOG(INFO) << "Releaced Keys: " << e.key.keysym.sym;
 
-	for(std::map<uint, bool>::iterator iterator = prevKeyboardState.begin(); iterator != prevKeyboardState.end(); iterator++) {
-		
-		//Deal with Releaced Keys
-		if(keyboardState[iterator->first] == false){
+		//reset Keyboard state
+		prevKeyboardState.erase(e.key.keysym.sym);
 
-		}
 	}
-
-	//reset Keyboard state
-	prevKeyboardState.clear();
-	prevKeyboardState = keyboardState;
-	keyboardState.clear();
-
 }

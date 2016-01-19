@@ -18,15 +18,6 @@ int main(int argc, char const *argv[])
 	//Init Body
 	Body body("./res/basicShader", "./res/test.obj", "./res/bricks.jpg");
 
-	//Init Shader
-	//Shader shader("./res/basicShader");
-
-	//Init Mesh
-	//Mesh mesh("./res/test.obj");
-
-	//Init Texture
-	//Texture texture("./res/bricks.jpg");
-
 	//Init Camera
 	Camera camera(glm::vec3(0,0,-3), 70.0d, (double)WIDTH/(double)HEIGHT, 0.01d, 1000.0d);
 
@@ -35,10 +26,6 @@ int main(int argc, char const *argv[])
 
 	//Init Mouse
 	Mouse mouse;
-
-
-	//
-	Transform transform;
 
 	while(!display.isClosed()){
 		//Clear Display
@@ -58,7 +45,6 @@ int main(int argc, char const *argv[])
 		//Redraw
 		display.update();
 	}
-
 
 	SDL_Quit();
 	return 0;

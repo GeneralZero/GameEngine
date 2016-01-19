@@ -19,14 +19,14 @@ void Mouse::doEvent(SDL_Event& e){
 	}
 
 	else if(e.type == SDL_MOUSEBUTTONDOWN){
-		LOG(INFO) << "Mouse Click (" << (uint)(e.button.button) << ",x=" << e.button.x << ",y=" << e.button.y << ")\n";
+		LOG(INFO) << "Mouse Click (" << (uint)(e.button.button) << ",x=" << e.button.x << ",y=" << e.button.y << ")";
 	}
 
 	else if(e.type == SDL_MOUSEBUTTONUP){
-		LOG(INFO) << "Mouse UP (" << (uint)(e.button.button) << ",x=" << e.button.x << ",y=" << e.button.y << ")\n";
+		LOG(INFO) << "Mouse UP (" << (uint)(e.button.button) << ",x=" << e.button.x << ",y=" << e.button.y << ")";
 	}
 
 	else if(e.type == SDL_MOUSEWHEEL){
-		LOG(INFO) << "Mouse Wheel (x=" << e.wheel.x << ",y=" << e.wheel.y << ")\n";
+		LOG(INFO) << "Mouse Wheel (x=" << e.wheel.x << ",y=" << e.wheel.y << ")";
 	}
 }
