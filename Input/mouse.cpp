@@ -19,12 +19,14 @@ void Mouse::doEvent(SDL_Event& e){
 	//Mouse Event
 	if(e.type == SDL_MOUSEMOTION){
 
-		if(e.motion.state){
-
+		if(e.motion.state == 1){
+			camera->look(e.motion.xrel, e.motion.yrel, 0.01f);
 		}
 
+		
+
 		//Save old X and Y
-		LOG(INFO) << "Mouse Move (" << e.motion.state << "x=" << e.motion.xrel << ",y=" << e.motion.yrel << ")\n";
+		//LOG(INFO) << "Mouse Move (" << e.motion.state << "x=" << e.motion.xrel << ",y=" << e.motion.yrel << ")";
 	}
 
 	else if(e.type == SDL_MOUSEBUTTONDOWN){
