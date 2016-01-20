@@ -66,3 +66,7 @@ void Display::Clear(float r, float g, float b, float a)
 bool Display::isClosed(){
 	return is_closed;
 }
+
+void Display::quit(){
+	is_closed = true;
+}

@@ -20,6 +20,7 @@ void Mouse::doEvent(SDL_Event& e){
 
 	else if(e.type == SDL_MOUSEBUTTONDOWN){
 		LOG(INFO) << "Mouse Click (" << (uint)(e.button.button) << ",x=" << e.button.x << ",y=" << e.button.y << ")";
+		
 	}
 
 	else if(e.type == SDL_MOUSEBUTTONUP){

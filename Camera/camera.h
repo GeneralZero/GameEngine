@@ -3,24 +3,30 @@
 
 #include <glm/glm.hpp>
 #include <GL/glew.h>
+#include "glm/gtc/matrix_transform.hpp"
 #include "../easylogging++.h"
 
 class Camera
 {
 public:
-	Camera(const glm::vec3& pos, double fov, double aspect, double zNear, double zFar){
-		m_perspective = glm::perspective((float)fov, (float)aspect, (float)zNear, (float)zFar);
-		m_position = pos;
-		m_foward = glm::vec3(0,0,1);
-		m_up = glm::vec3(0,1,0);
-	}
+	Camera(const glm::vec3& pos, double fov, double aspect, double zNear, double zFar);
+	~Camera();
 
-	inline glm::mat4 GetViewProjection() const{
-		return m_perspective * glm::lookAt(m_position, m_position + m_foward, m_up);
-	}
-	~Camera(){
+	glm::mat4 GetViewProjection();
 
-	}
+	void moveFoward();
+	void moveRight();
+	void moveLeft();
+	void moveReverse();
+	void moveUp();
+	void moveDown();
+
+
+	void lookUp();
+	void lookDown();
+	void lookRight();
+	void lookLeft();
+
 protected:
 private:
 	glm::mat4 m_perspective;

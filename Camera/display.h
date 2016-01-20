@@ -1,9 +1,9 @@
 #ifndef DISPLAY_H_
 #define DISPLAY_H_ 
 
+#include <GL/glew.h>
 #include <SDL2/SDL.h>
 #include <string>
-#include <GL/glew.h>
 #include "../easylogging++.h"
 
 class Display
@@ -15,6 +15,7 @@ public:
 	void update();
 	void doEvent(SDL_Event& e);
 	bool isClosed();
+	void quit();
 	void Clear(float a, float b, float c, float d);
 	void Clear();
 

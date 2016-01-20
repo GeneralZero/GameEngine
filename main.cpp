@@ -1,4 +1,5 @@
 #include <iostream>
+#include <thread>
 #include <GL/glew.h>
 #include "Input/keyboard.h"
 #include "Input/mouse.h"
@@ -22,10 +23,10 @@ int main(int argc, char const *argv[])
 	Camera camera(glm::vec3(0,0,-3), 70.0d, (double)WIDTH/(double)HEIGHT, 0.01d, 1000.0d);
 
 	//Init Keyboard
-	Keyboard keyboard;
+	Keyboard keyboard(&display, &camera);
 
 	//Init Mouse
-	Mouse mouse;
+	//Mouse mouse(display&, camera&);
 
 	while(!display.isClosed()){
 		//Clear Display
@@ -37,7 +38,7 @@ int main(int argc, char const *argv[])
 		while(SDL_PollEvent(&e)){
 			display.doEvent(e);
 			keyboard.doEvent(e);
-			mouse.doEvent(e);
+			//mouse.doEvent(e, &camera);
 		}
 
 		body.update(camera);

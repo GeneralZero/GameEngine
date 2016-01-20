@@ -3,6 +3,8 @@
 
 #include <map>
 #include <SDL2/SDL.h>
+#include "../Camera/camera.h"
+#include "../Camera/display.h"
 #include "../easylogging++.h"
 
 class Mouse {
@@ -11,6 +13,7 @@ class Mouse {
 
 	public:
 		Mouse();
+		//Mouse(display&, camera&);
 		~Mouse();
 
 		void doEvent(SDL_Event& e);
