@@ -9,11 +9,12 @@
 
 class Mouse {
 	private:
-
+		Display* display;
+		Camera* camera;
 
 	public:
 		Mouse();
-		//Mouse(display&, camera&);
+		Mouse(Display* display, Camera* camera);
 		~Mouse();
 
 		void doEvent(SDL_Event& e);

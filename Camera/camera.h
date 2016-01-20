@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 #include <GL/glew.h>
 #include "glm/gtc/matrix_transform.hpp"
+#include "glm/gtx/rotate_vector.hpp"
 #include "../easylogging++.h"
 
 class Camera
@@ -14,18 +15,15 @@ public:
 
 	glm::mat4 GetViewProjection();
 
-	void moveFoward();
-	void moveRight();
-	void moveLeft();
-	void moveReverse();
-	void moveUp();
-	void moveDown();
+	void moveFoward(double inc);
+	void moveRight(double inc);
+	void moveLeft(double inc);
+	void moveReverse(double inc);
+	void moveUp(double inc);
+	void moveDown(double inc);
 
 
-	void lookUp();
-	void lookDown();
-	void lookRight();
-	void lookLeft();
+	void look(int x, int y, float inc);
 
 protected:
 private:

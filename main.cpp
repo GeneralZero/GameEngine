@@ -16,17 +16,18 @@ int main(int argc, char const *argv[])
 	//Init Display
 	Display display(800, 600, "Hello World!");
 
-	//Init Body
-	Body body("./res/basicShader", "./res/test.obj", "./res/bricks.jpg");
-
 	//Init Camera
 	Camera camera(glm::vec3(0,0,-3), 70.0d, (double)WIDTH/(double)HEIGHT, 0.01d, 1000.0d);
+
+	//Init Body
+	Body body("./res/basicShader", "./res/test.obj", "./res/bricks.jpg", &camera);
+
 
 	//Init Keyboard
 	Keyboard keyboard(&display, &camera);
 
 	//Init Mouse
-	//Mouse mouse(display&, camera&);
+	Mouse mouse(&display, &camera);
 
 	while(!display.isClosed()){
 		//Clear Display
@@ -38,10 +39,10 @@ int main(int argc, char const *argv[])
 		while(SDL_PollEvent(&e)){
 			display.doEvent(e);
 			keyboard.doEvent(e);
-			//mouse.doEvent(e, &camera);
+			mouse.doEvent(e);
 		}
 
-		body.update(camera);
+		body.update();
 
 		//Redraw
 		display.update();

@@ -1,7 +1,7 @@
 #include "body.h"
 
 
-Body::Body(const std::string& shaderFilename, const std::string& meshFilename, const std::string& textureFilename){
+Body::Body(const std::string& shaderFilename, const std::string& meshFilename, const std::string& textureFilename, Camera* g_camera){
 	
 	//Init Shader
 	shader.init(shaderFilename);
@@ -12,6 +12,8 @@ Body::Body(const std::string& shaderFilename, const std::string& meshFilename, c
 	//Init Texture
 	texture.init(textureFilename);
 
+	camera = g_camera;
+
 	counter = 0.0f;
 }
 
@@ -19,7 +21,7 @@ Body::~Body(){
 
 }
 
-void Body::update(Camera camera){
+void Body::update(){
 	
 
 	float sinCounter = sinf(counter);

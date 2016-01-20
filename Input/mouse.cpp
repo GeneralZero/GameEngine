@@ -4,6 +4,11 @@ Mouse::Mouse(){
 
 }
 
+Mouse::Mouse(Display* g_display, Camera* g_camera){
+	display = g_display;
+	camera = g_camera;
+}
+
 Mouse::~Mouse(){
 
 }
@@ -14,8 +19,12 @@ void Mouse::doEvent(SDL_Event& e){
 	//Mouse Event
 	if(e.type == SDL_MOUSEMOTION){
 
+		if(e.motion.state){
+
+		}
+
 		//Save old X and Y
-		//LOG(INFO) << "Mouse Move (x=" << e.motion.xrel << ",y=" << e.motion.yrel << ")\n";
+		LOG(INFO) << "Mouse Move (" << e.motion.state << "x=" << e.motion.xrel << ",y=" << e.motion.yrel << ")\n";
 	}
 
 	else if(e.type == SDL_MOUSEBUTTONDOWN){

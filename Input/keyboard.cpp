@@ -21,27 +21,27 @@ void Keyboard::doEvent(SDL_Event& e){
 
 		switch(e.key.keysym.sym){
 			case SDLK_w:
-				camera->moveFoward();
+				camera->moveFoward(0.1f);
 				break;
 
 			case SDLK_a:
-				camera->moveLeft();
+				camera->moveLeft(0.1f);
 				break;
 
 			case SDLK_s:
-				camera->moveReverse();
+				camera->moveReverse(0.1f);
 				break;
 			
 			case SDLK_d:
-				camera->moveRight();
+				camera->moveRight(0.1f);
 				break;
 			
 			case SDLK_r:
-				camera->moveUp();
+				camera->moveUp(0.1f);
 				break;
 			
 			case SDLK_f:
-				camera->moveDown();
+				camera->moveDown(0.1f);
 				break;
 		}
 

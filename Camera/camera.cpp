@@ -13,44 +13,41 @@ glm::mat4 Camera::GetViewProjection(){
 	return m_perspective * glm::lookAt(m_position, m_position + m_foward, m_up);
 }
 
-void Camera::moveFoward(){
-	m_position += .1f * m_foward;
+void Camera::moveFoward(double inc){
+	m_position += (float)inc * m_foward;
 }
 
-void Camera::moveRight(){
-	m_position += .1f * glm::cross(m_foward, m_up);
+void Camera::moveRight(double inc){
+	m_position += (float)inc * glm::cross(m_foward, m_up);
 }
 
-void Camera::moveLeft(){
-	m_position -= .1f * glm::cross(m_foward, m_up);
+void Camera::moveLeft(double inc){
+	m_position -= (float)inc * glm::cross(m_foward, m_up);
 }
 
-void Camera::moveReverse(){
-	m_position -= .1f * m_foward;
+void Camera::moveReverse(double inc){
+	m_position -= (float)inc * m_foward;
 }
 
-void Camera::moveUp(){
-	m_position += .1f * m_up;
+void Camera::moveUp(double inc){
+	m_position += (float)inc * m_up;
 }
 
-void Camera::moveDown(){
-	m_position -= .1f * m_up;
+void Camera::moveDown(double inc){
+	m_position -= (float)inc * m_up;
 }
 
-/*
-void Camera::lookUp(){
-	m_position +=
+
+void Camera::look(int x, int y, float inc){
+
+	//Rotate x
+	m_foward = glm::mat3(glm::rotate(-x * inc, m_up)) * m_foward;
+
+	//Rotate y
+	m_foward = glm::mat3(glm::rotate(-y * inc, glm::cross(m_foward, m_up))) * m_foward;
+	
 }
-void Camera::lookDown(){
-	m_position +=
-}
-void Camera::lookRight(){
-	m_position +=
-}
-void Camera::lookLeft(){
-	m_position +=
-}
-*/
+
 Camera::~Camera(){
 
 }

@@ -18,7 +18,7 @@ public:
 	void CheckShaderError(GLuint shader, GLuint flag, bool isProgram, const std::string& errorMessage);
 	std::string LoadShader(const std::string& fileName);
 	void Bind();
-	void Update(const Transform& transform, const Camera& camera);
+	void Update(Transform& transform, Camera* camera);
 	void init(const std::string& fileName);
 
 	virtual ~Shader();

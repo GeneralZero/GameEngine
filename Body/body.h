@@ -14,11 +14,13 @@ class Body
 {
 private:
 	float counter;
+	Camera* camera;
+
 public:
-	Body(const std::string& shaderFilename, const std::string& meshFilename, const std::string& textureFilename);
+	Body(const std::string& shaderFilename, const std::string& meshFilename, const std::string& textureFilename, Camera* camera);
 	~Body();
 
-	void update(Camera camera);
+	void update();
 
 	Shader shader;
 	Mesh mesh;
